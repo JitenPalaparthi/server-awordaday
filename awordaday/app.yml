@@ -8,5 +8,8 @@ services:
       - "50051:50051" 
     networks:
      - awordadaynet
+
 networks:
   awordadaynet:
+    external:
+      name: awordaday_awordadaynet

@@ -45,4 +45,5 @@ services:
      - awordadaynet
 
 networks:
-  awordadaynet:
+    default:
+    awordadaynet:
