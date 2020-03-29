@@ -1,0 +1,255 @@
+I200329 07:31:40.685413 1 util/log/clog.go:1196  [config] file created at: 2020/03/29 07:31:40
+I200329 07:31:40.685413 1 util/log/clog.go:1196  [config] running on machine: 133c30f5e4b7
+I200329 07:31:40.685413 1 util/log/clog.go:1196  [config] binary: CockroachDB CCL v19.2.5 (x86_64-unknown-linux-gnu, built 2020/03/16 18:27:12, go1.12.12)
+I200329 07:31:40.685413 1 util/log/clog.go:1196  [config] arguments: [/cockroach/cockroach start --insecure --join=roach-ui]
+I200329 07:31:40.685413 1 util/log/clog.go:1196  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I200329 07:31:40.685394 1 cli/start.go:1144  logging to directory /cockroach/cockroach-data/logs
+W200329 07:31:40.690621 1 cli/start.go:1182  RUNNING IN INSECURE MODE!
+
+- Your cluster is open for any client that can access <all your IP addresses>.
+- Any user, even root, can log in without providing a password.
+- Any user, connecting as root, can read or write any data in your cluster.
+- There is no network encryption nor authentication, and thus no confidentiality.
+
+Check out how to secure your cluster: https://www.cockroachlabs.com/docs/v19.2/secure-a-cluster.html
+I200329 07:31:40.691063 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+W200329 07:31:40.691163 1 cli/start.go:1052  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (497 MiB).
+I200329 07:31:40.691378 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+W200329 07:31:40.691464 1 cli/start.go:1065  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (497 MiB).
+I200329 07:31:40.691757 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+I200329 07:31:40.691794 1 cli/start.go:1196  CockroachDB CCL v19.2.5 (x86_64-unknown-linux-gnu, built 2020/03/16 18:27:12, go1.12.12)
+I200329 07:31:40.907025 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+I200329 07:31:40.907144 1 server/config.go:394  system total memory: 1.9 GiB
+I200329 07:31:40.907364 1 server/config.go:396  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I200329 07:31:40.907444 1 cli/start.go:1030  using local environment variables: COCKROACH_CHANNEL=official-docker
+I200329 07:31:40.907497 1 cli/start.go:1037  process identity: uid 0 euid 0 gid 0 egid 0
+I200329 07:31:40.907710 1 cli/start.go:644  starting cockroach node
+I200329 07:31:40.917619 16 storage/engine/rocksdb.go:622  opening rocksdb instance at "/cockroach/cockroach-data/cockroach-temp236551240"
+I200329 07:31:41.059487 16 server/server.go:928  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I200329 07:31:41.062045 16 storage/engine/rocksdb.go:622  opening rocksdb instance at "/cockroach/cockroach-data"
+I200329 07:31:41.170057 16 server/config.go:502  [n?] 1 storage engine initialized
+I200329 07:31:41.170092 16 server/config.go:505  [n?] RocksDB cache size: 128 MiB
+I200329 07:31:41.170129 16 server/config.go:505  [n?] store 0: RocksDB, max size 0 B, max open file limit 1043576
+W200329 07:31:41.181613 16 gossip/gossip.go:1517  [n?] no incoming or outgoing connections
+W200329 07:31:41.181787 16 cli/start.go:996  neither --listen-addr nor --advertise-addr was specified.
+The server will advertise "133c30f5e4b7" to other nodes, is this routable?
+
+Consider using:
+- for local-only servers:  --listen-addr=localhost
+- for multi-node clusters: --advertise-addr=<host/IP addr>
+I200329 07:31:41.183107 16 server/server.go:978  [n?] Sleeping till wall time 1585467101183040300 to catches up to 1585467101559304001 to ensure monotonicity. Delta: 376.263701ms
+I200329 07:31:41.558627 79 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:322  [n?] circuitbreaker: gossip [::]:26257->roach-ui:26257 tripped: initial connection heartbeat failed: rpc error: code = Unknown desc = client cluster ID "1b688fa2-c06a-4469-87f0-169e5b76b7e8" doesn't match server cluster ID "392dd235-3b03-4ee1-a151-a5488e15b659"
+I200329 07:31:41.558670 79 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447  [n?] circuitbreaker: gossip [::]:26257->roach-ui:26257 event: BreakerTripped
+W200329 07:31:41.558718 79 gossip/client.go:118  [n?] failed to start gossip client to roach-ui:26257: initial connection heartbeat failed: rpc error: code = Unknown desc = client cluster ID "1b688fa2-c06a-4469-87f0-169e5b76b7e8" doesn't match server cluster ID "392dd235-3b03-4ee1-a151-a5488e15b659"
+I200329 07:31:41.560224 16 gossip/gossip.go:394  [n2] NodeDescriptor set to node_id:2 address:<network_field:"tcp" address_field:"133c30f5e4b7:26257" > attrs:<> locality:<> ServerVersion:<major_val:19 minor_val:2 patch:0 unstable:0 > build_tag:"v19.2.5" started_at:1585467101560062200 cluster_name:"" sql_address:<network_field:"tcp" address_field:"133c30f5e4b7:26257" > 
+I200329 07:31:41.633810 16 server/node.go:431  [n2] initialized store [n2,s2]: disk (capacity=116 TiB, available=85 TiB, used=377 KiB, logicalBytes=0 B), ranges=0, leases=0, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I200329 07:31:41.634043 16 storage/stores.go:240  [n2] read 1 node addresses from persistent storage
+I200329 07:31:41.634302 16 server/node.go:645  [n2] connecting to gossip network to verify cluster ID...
+W200329 07:31:43.198674 92 gossip/gossip.go:1300  [n2] invalid bootstrap address: &{typ:tcp addr:83bc730a68a7:26257}, lookup 83bc730a68a7 on 127.0.0.11:53: no such host
+W200329 07:31:47.566482 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:32:11.148892 329 cli/start.go:634  The server appears to be unable to contact the other nodes in the cluster. Please try:
+
+- starting the other nodes, if you haven't already;
+- double-checking that the '--join' and '--listen'/'--advertise' flags are set up correctly;
+- running the 'cockroach init' command if you are trying to initialize a new cluster.
+
+If problems persist, please see https://www.cockroachlabs.com/docs/v19.2/cluster-setup-troubleshooting.html.
+W200329 07:32:46.348651 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:32:53.479191 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:33:41.335077 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:33:59.425275 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:34:49.512334 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:35:05.376966 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:35:54.449270 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:36:11.331117 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:37:08.754018 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:37:17.277352 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:38:11.210220 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:38:23.212214 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:39:14.696121 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:39:29.172309 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:40:17.524473 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:40:35.144677 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:41:13.601010 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:41:41.100399 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:42:06.460281 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:42:47.067930 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:43:17.219846 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:43:52.990769 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:44:17.361376 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:44:58.957935 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:45:23.314269 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:46:04.900865 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:46:32.271328 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:47:10.850488 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:47:22.602291 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:48:11.094632 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:48:16.816831 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:49:02.449789 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:49:22.747375 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:49:47.745057 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:50:28.696535 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:50:48.993718 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:51:34.681561 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:51:40.616746 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:52:40.649209 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:52:51.870460 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:53:46.625868 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:53:56.150120 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:54:41.733328 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:54:52.565681 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:55:37.338924 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:55:58.517466 96 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:56:44.900820 160 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+I200329 07:56:55.849004 1 cli/start.go:865  received signal 'terminated'
+I200329 07:56:55.850331 1 cli/start.go:930  initiating graceful shutdown of server
+I200329 07:56:55.851235 1 cli/start.go:981  too early to drain; used hard shutdown instead

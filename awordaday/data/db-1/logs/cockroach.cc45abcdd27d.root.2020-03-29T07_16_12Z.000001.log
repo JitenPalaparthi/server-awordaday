@@ -1,0 +1,59 @@
+I200329 07:16:12.658362 1 util/log/clog.go:1196  [config] file created at: 2020/03/29 07:16:12
+I200329 07:16:12.658362 1 util/log/clog.go:1196  [config] running on machine: cc45abcdd27d
+I200329 07:16:12.658362 1 util/log/clog.go:1196  [config] binary: CockroachDB CCL v19.2.5 (x86_64-unknown-linux-gnu, built 2020/03/16 18:27:12, go1.12.12)
+I200329 07:16:12.658362 1 util/log/clog.go:1196  [config] arguments: [/cockroach/cockroach start --insecure --join=roach-ui]
+I200329 07:16:12.658362 1 util/log/clog.go:1196  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I200329 07:16:12.658349 1 cli/start.go:1144  logging to directory /cockroach/cockroach-data/logs
+W200329 07:16:12.662929 1 cli/start.go:1182  RUNNING IN INSECURE MODE!
+
+- Your cluster is open for any client that can access <all your IP addresses>.
+- Any user, even root, can log in without providing a password.
+- Any user, connecting as root, can read or write any data in your cluster.
+- There is no network encryption nor authentication, and thus no confidentiality.
+
+Check out how to secure your cluster: https://www.cockroachlabs.com/docs/v19.2/secure-a-cluster.html
+I200329 07:16:12.663766 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+W200329 07:16:12.664387 1 cli/start.go:1052  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (497 MiB).
+I200329 07:16:12.664796 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+W200329 07:16:12.664854 1 cli/start.go:1065  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (497 MiB).
+I200329 07:16:12.665182 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+I200329 07:16:12.665249 1 cli/start.go:1196  CockroachDB CCL v19.2.5 (x86_64-unknown-linux-gnu, built 2020/03/16 18:27:12, go1.12.12)
+I200329 07:16:12.782661 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+I200329 07:16:12.782760 1 server/config.go:394  system total memory: 1.9 GiB
+I200329 07:16:12.782906 1 server/config.go:396  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I200329 07:16:12.782987 1 cli/start.go:1030  using local environment variables: COCKROACH_CHANNEL=official-docker
+I200329 07:16:12.783056 1 cli/start.go:1037  process identity: uid 0 euid 0 gid 0 egid 0
+I200329 07:16:12.785786 1 cli/start.go:644  starting cockroach node
+I200329 07:16:12.794895 39 storage/engine/rocksdb.go:622  opening rocksdb instance at "/cockroach/cockroach-data/cockroach-temp799781776"
+I200329 07:16:12.972930 39 server/server.go:928  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I200329 07:16:12.977087 39 storage/engine/rocksdb.go:622  opening rocksdb instance at "/cockroach/cockroach-data"
+I200329 07:16:13.054925 39 server/config.go:502  [n?] 1 storage engine initialized
+I200329 07:16:13.054964 39 server/config.go:505  [n?] RocksDB cache size: 128 MiB
+I200329 07:16:13.054992 39 server/config.go:505  [n?] store 0: RocksDB, max size 0 B, max open file limit 1043576
+W200329 07:16:13.067074 39 gossip/gossip.go:1517  [n?] no incoming or outgoing connections
+I200329 07:16:13.067227 39 server/server.go:1386  [n?] no stores bootstrapped and --join flag specified, awaiting init command or join with an already initialized node.
+W200329 07:16:14.080759 88 gossip/gossip.go:1300  [n?] invalid bootstrap address: &{typ:tcp addr:roach-ui:26257}, lookup roach-ui on 127.0.0.11:53: no such host
+W200329 07:16:15.072357 92 cli/start.go:996  neither --listen-addr nor --advertise-addr was specified.
+The server will advertise "cc45abcdd27d" to other nodes, is this routable?
+
+Consider using:
+- for local-only servers:  --listen-addr=localhost
+- for multi-node clusters: --advertise-addr=<host/IP addr>
+I200329 07:16:15.072837 92 cli/start.go:603  initial startup completed.
+Node will now attempt to join a running cluster, or wait for `cockroach init`.
+Client connections will be accepted after this completes successfully.
+Check the log file(s) for progress. 
+I200329 07:16:35.558044 1 cli/start.go:865  received signal 'terminated'
+I200329 07:16:35.558627 1 cli/start.go:930  initiating graceful shutdown of server
+I200329 07:16:35.559054 1 cli/start.go:981  too early to drain; used hard shutdown instead

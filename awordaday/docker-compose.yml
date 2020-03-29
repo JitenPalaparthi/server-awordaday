@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  awordaday1:
+    container_name: awordaday1
+    image: cockroachdb/cockroach:v19.2.5
+    command: start --insecure  --join=awordaday1,awordaday2,awordaday3
+    ports:
+      - "26257:26257"
+      - "8080:8080"
+    networks:
+     - awordadaynet
+    volumes:
+     - "./data/awordaday1:/cockroach/data"
+     - "./scripts:/cockroach/scripts"
+
+  
+  awordaday2:
+    container_name: awordaday2
+    image: cockroachdb/cockroach:v19.2.5
+    command: start --insecure  --join=awordaday1,awordaday2,awordaday3
+    networks:
+     - awordadaynet
+    volumes:
+     - "./data/awordaday2:/cockroach/data" 
+
+  awordaday3:
+    container_name: awordaday3
+    image: cockroachdb/cockroach:v19.2.5
+    command: start --insecure  --join=awordaday1,awordaday2,awordaday3
+   
+    networks:
+     - awordadaynet
+    volumes:
+     - "./data/awordaday3:/cockroach/data" 
+
+  nats:
+    container_name: aWordADay_nats
+    image: nats
+    ports:
+      - "4222:4222"
+      - "6222:6222"
+      - "8222:8222"
+    networks:
+     - awordadaynet
+
+networks:
+  awordadaynet:

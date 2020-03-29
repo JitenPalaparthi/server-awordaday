@@ -1,0 +1,85 @@
+I200329 07:29:49.143200 1 util/log/clog.go:1196  [config] file created at: 2020/03/29 07:29:49
+I200329 07:29:49.143200 1 util/log/clog.go:1196  [config] running on machine: 133c30f5e4b7
+I200329 07:29:49.143200 1 util/log/clog.go:1196  [config] binary: CockroachDB CCL v19.2.5 (x86_64-unknown-linux-gnu, built 2020/03/16 18:27:12, go1.12.12)
+I200329 07:29:49.143200 1 util/log/clog.go:1196  [config] arguments: [/cockroach/cockroach start --insecure --join=roach-ui]
+I200329 07:29:49.143200 1 util/log/clog.go:1196  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I200329 07:29:49.143187 1 cli/start.go:1144  logging to directory /cockroach/cockroach-data/logs
+W200329 07:29:49.147300 1 cli/start.go:1182  RUNNING IN INSECURE MODE!
+
+- Your cluster is open for any client that can access <all your IP addresses>.
+- Any user, even root, can log in without providing a password.
+- Any user, connecting as root, can read or write any data in your cluster.
+- There is no network encryption nor authentication, and thus no confidentiality.
+
+Check out how to secure your cluster: https://www.cockroachlabs.com/docs/v19.2/secure-a-cluster.html
+I200329 07:29:49.147778 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+W200329 07:29:49.147891 1 cli/start.go:1052  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (497 MiB).
+I200329 07:29:49.148226 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+W200329 07:29:49.148278 1 cli/start.go:1065  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (497 MiB).
+I200329 07:29:49.148591 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+I200329 07:29:49.148634 1 cli/start.go:1196  CockroachDB CCL v19.2.5 (x86_64-unknown-linux-gnu, built 2020/03/16 18:27:12, go1.12.12)
+I200329 07:29:49.320077 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+I200329 07:29:49.320139 1 server/config.go:394  system total memory: 1.9 GiB
+I200329 07:29:49.320217 1 server/config.go:396  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I200329 07:29:49.320265 1 cli/start.go:1030  using local environment variables: COCKROACH_CHANNEL=official-docker
+I200329 07:29:49.320311 1 cli/start.go:1037  process identity: uid 0 euid 0 gid 0 egid 0
+I200329 07:29:49.320430 1 cli/start.go:644  starting cockroach node
+I200329 07:29:49.323657 53 storage/engine/rocksdb.go:622  opening rocksdb instance at "/cockroach/cockroach-data/cockroach-temp261526936"
+I200329 07:29:49.460994 53 server/server.go:928  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I200329 07:29:49.463365 53 storage/engine/rocksdb.go:622  opening rocksdb instance at "/cockroach/cockroach-data"
+I200329 07:29:49.581089 53 server/config.go:502  [n?] 1 storage engine initialized
+I200329 07:29:49.581175 53 server/config.go:505  [n?] RocksDB cache size: 128 MiB
+I200329 07:29:49.581217 53 server/config.go:505  [n?] store 0: RocksDB, max size 0 B, max open file limit 1043576
+W200329 07:29:49.595229 53 gossip/gossip.go:1517  [n?] no incoming or outgoing connections
+W200329 07:29:49.595467 53 cli/start.go:996  neither --listen-addr nor --advertise-addr was specified.
+The server will advertise "133c30f5e4b7" to other nodes, is this routable?
+
+Consider using:
+- for local-only servers:  --listen-addr=localhost
+- for multi-node clusters: --advertise-addr=<host/IP addr>
+I200329 07:29:49.597674 53 server/server.go:978  [n?] Sleeping till wall time 1585466989597570000 to catches up to 1585466989960793401 to ensure monotonicity. Delta: 363.223401ms
+I200329 07:29:49.604602 61 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:322  [n?] circuitbreaker: gossip [::]:26257->roach-ui:26257 tripped: initial connection heartbeat failed: rpc error: code = Unknown desc = client cluster ID "1b688fa2-c06a-4469-87f0-169e5b76b7e8" doesn't match server cluster ID "392dd235-3b03-4ee1-a151-a5488e15b659"
+I200329 07:29:49.604651 61 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447  [n?] circuitbreaker: gossip [::]:26257->roach-ui:26257 event: BreakerTripped
+W200329 07:29:49.604784 61 gossip/client.go:118  [n?] failed to start gossip client to roach-ui:26257: initial connection heartbeat failed: rpc error: code = Unknown desc = client cluster ID "1b688fa2-c06a-4469-87f0-169e5b76b7e8" doesn't match server cluster ID "392dd235-3b03-4ee1-a151-a5488e15b659"
+I200329 07:29:49.962683 53 gossip/gossip.go:394  [n2] NodeDescriptor set to node_id:2 address:<network_field:"tcp" address_field:"133c30f5e4b7:26257" > attrs:<> locality:<> ServerVersion:<major_val:19 minor_val:2 patch:0 unstable:0 > build_tag:"v19.2.5" started_at:1585466989962447600 cluster_name:"" sql_address:<network_field:"tcp" address_field:"133c30f5e4b7:26257" > 
+I200329 07:29:50.021282 53 server/node.go:431  [n2] initialized store [n2,s2]: disk (capacity=116 TiB, available=85 TiB, used=327 KiB, logicalBytes=0 B), ranges=0, leases=0, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I200329 07:29:50.021605 53 storage/stores.go:240  [n2] read 1 node addresses from persistent storage
+I200329 07:29:50.021875 53 server/node.go:645  [n2] connecting to gossip network to verify cluster ID...
+W200329 07:29:52.580087 85 gossip/gossip.go:1300  [n2] invalid bootstrap address: &{typ:tcp addr:83bc730a68a7:26257}, lookup 83bc730a68a7 on 127.0.0.11:53: no such host
+W200329 07:29:55.932250 103 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:30:19.564743 362 cli/start.go:634  The server appears to be unable to contact the other nodes in the cluster. Please try:
+
+- starting the other nodes, if you haven't already;
+- double-checking that the '--join' and '--listen'/'--advertise' flags are set up correctly;
+- running the 'cockroach init' command if you are trying to initialize a new cluster.
+
+If problems persist, please see https://www.cockroachlabs.com/docs/v19.2/cluster-setup-troubleshooting.html.
+W200329 07:30:44.996586 153 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+W200329 07:31:01.879143 103 storage/closedts/provider/provider.go:150  [ct-closer] unable to move closed timestamp forward: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200329 07:31:32.911689 153 storage/store_rebalancer.go:219  [n2,s2,store-rebalancer] StorePool missing descriptor for local store
+I200329 07:31:37.561315 1 cli/start.go:865  received signal 'terminated'
+I200329 07:31:37.562041 1 cli/start.go:930  initiating graceful shutdown of server
+I200329 07:31:37.563202 1 cli/start.go:981  too early to drain; used hard shutdown instead

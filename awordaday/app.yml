@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app:
+    container_name: awordaday
+    restart: always
+    build: ./
+    ports:
+      - "50051:50051" 
+    networks:
+     - awordadaynet
+networks:
+  awordadaynet:
