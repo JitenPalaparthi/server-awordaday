@@ -87,18 +87,23 @@ func (d *Database) InsertRequestedWord(requestedWord *models.RequestWord) (err e
 }
 
 // UpdateWord is to update a word based on values that are by map
-func (d *Database) UpdateWord(id string, values map[string]interface{}) (err error) {
+func (d *Database) UpdateWord(id string, values map[string]interface{}) (word *models.Word, err error) {
 	if len(values) < 1 {
-		return errors.New("no values provided to update")
+		return nil, errors.New("no values provided to update")
 	}
 	values["last_updated"] = time.Now()
-	word := &models.Word{}
+	word = &models.Word{}
 	word.ID = id
 	c := d.Client.Model(word).Updates(values)
 	if c.Error != nil {
-		return c.Error
+		return nil, c.Error
 	}
-	return nil
+	c1 := d.Client.Where("id = ?", id).Preload("Sentences").First(word)
+	if c1.Error != nil {
+		fmt.Println(c1.Error)
+		return nil, c1.Error
+	}
+	return word, nil
 }
 
 func (d *Database) DeleteWord(_word string) (err error) {

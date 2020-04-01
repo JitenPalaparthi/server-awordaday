@@ -210,6 +210,7 @@ func AuditMiddleware() func(*gin.Context) {
 			}
 			ip, _ := helper.GetClientIPHelper(c.Request)
 			channels.ChanAudit <- models.Audit{Data: string(bodyBytes), Headers: headers, URLPath: c.Request.Host + helper.GetPath(c), IP: ip, Device: c.Request.Header.Get("User-Agent"), DateTime: time.Now().UTC()}
+			
 		}
 		c.Next()
 	}

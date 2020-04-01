@@ -3,11 +3,13 @@ package handler
 import (
 	"awordaday/database"
 	"awordaday/models"
+
 	"encoding/json"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 func GetMagicWord(d *database.Database) func(c *gin.Context) {
@@ -113,7 +115,7 @@ func InsertWord(d *database.Database) func(c *gin.Context) {
 			word.Status = "NOT-ACTIVE"
 			//word.LastUpdated = time.Now()
 			err = json.NewDecoder(c.Request.Body).Decode(&word)
-			fmt.Println(word.Word)
+
 			if err != nil {
 				c.JSON(http.StatusBadRequest, gin.H{
 					"status":  "failed",
@@ -132,11 +134,13 @@ func InsertWord(d *database.Database) func(c *gin.Context) {
 				c.Abort()
 				return
 			}
+			//ChanWord <- word
 			//c.BindJSON(&u)
 			c.JSON(http.StatusOK, gin.H{
 				"status":  "success",
 				"message": "Word Successfully Created",
 			})
+
 			c.Abort()
 			return
 		}
@@ -277,7 +281,7 @@ func UpdateWord(d *database.Database) func(c *gin.Context) {
 				return
 			}
 
-			err = d.UpdateWord(id, jsonMap)
+			rword, err := d.UpdateWord(id, jsonMap)
 			if err != nil {
 				c.JSON(http.StatusBadRequest, gin.H{
 					"status":  "failed",
@@ -285,6 +289,9 @@ func UpdateWord(d *database.Database) func(c *gin.Context) {
 				})
 				c.Abort()
 				return
+			}
+			if rword != nil && jsonMap["status"] == "Active" {
+				ChanWord <- *rword
 			}
 			c.JSON(http.StatusOK, gin.H{
 				"status":  "success",

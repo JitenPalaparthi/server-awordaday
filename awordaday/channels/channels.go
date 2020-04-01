@@ -19,6 +19,10 @@ var (
 	chanMessage chan Message
 	NC          *nats.Conn
 	ChanAudit   chan models.Audit
+
+	//BotToken string = "1129175375:AAHiJ0FMhGOZmj-nIKg488jNMtAEqoyIUHY"
+	//BotGroupId int64 =-402080650
+	//BotUrlstring "https://api.telegram.org/bot1129175375:AAHiJ0FMhGOZmj-nIKg488jNMtAEqoyIUHY/sendMessage"
 )
 
 // Inidiate the channel at the beginning of the handler usage
@@ -27,6 +31,7 @@ func Init(nc *nats.Conn) {
 		chanMessage = make(chan Message, 20)
 		go ProcessMessage(nc)
 	}
+
 }
 
 func InitAudit(session interface{}, database string) {
